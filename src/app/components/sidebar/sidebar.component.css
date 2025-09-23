@@ -1,0 +1,100 @@
+/* Wrapper */
+#wrapper {
+  overflow-x: hidden;
+  transition: all 0.3s ease-in-out;
+  display: flex;
+}
+
+/* Sidebar */
+#sidebar-wrapper {
+  min-height: 100vh;
+  width: 15rem;
+  margin-left: 0; /* Default: visible */
+  transition: margin 0.3s ease-in-out;
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  background-color: #000; /* Black */
+  color: #ffbf00; /* Amber */
+}
+
+/* Sidebar Heading */
+.sidebar-heading {
+  padding: 1rem;
+  font-size: 1.2rem;
+  background-color: #111;
+  color: #ffbf00;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+/* Sidebar Links */
+#sidebar-wrapper .list-group-item {
+  background-color: #000;
+  color: #ffbf00;
+  border: none;
+  transition: all 0.3s ease-in-out;
+}
+#sidebar-wrapper .list-group-item:hover,
+#sidebar-wrapper .list-group-item.active {
+  background-color: #ffbf00 !important;
+  color: #000 !important;
+  font-weight: bold;
+}
+
+/* Page Content */
+#page-content-wrapper {
+  flex: 1;
+  width: 100%;              /* Take full width */
+  margin-left: 15rem;       /* Offset when sidebar visible */
+  transition: margin 0.3s ease-in-out;
+  background-color: #f8f9fa;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Navbar */
+.navbar {
+  transition: margin 0.3s ease-in-out;
+  background-color: #ffbf00 !important;
+}
+.navbar .navbar-brand,
+.navbar .nav-link {
+  color: #000 !important;
+  font-weight: bold;
+}
+.navbar .btn {
+  background-color: #000 !important;
+  border: 2px solid #ffbf00;
+  color: #ffbf00 !important;
+}
+.navbar .btn:hover {
+  background-color: #1a1a1a !important;
+  color: #ffbf00 !important;
+}
+
+/* Toggled state (hide sidebar) */
+#wrapper.toggled #sidebar-wrapper {
+  margin-left: -15rem; /* Hide sidebar */
+}
+#wrapper.toggled #page-content-wrapper {
+  margin-left: 0;      /* Content takes full width */
+}
+#wrapper.toggled .navbar {
+  margin-left: 0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  #sidebar-wrapper {
+    margin-left: -15rem; /* Hide by default on mobile */
+  }
+  #wrapper.toggled #sidebar-wrapper {
+    margin-left: 0; /* Slide in when toggled */
+  }
+  #page-content-wrapper {
+    margin-left: 0; /* Always full width on mobile */
+  }
+}

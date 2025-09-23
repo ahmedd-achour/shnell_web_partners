@@ -1,0 +1,93 @@
+<div class="container py-4">
+  <!-- Error Message -->
+  <div *ngIf="errorMessage" class="alert alert-danger" role="alert">
+    {{ errorMessage }}
+  </div>
+
+  <!-- Loading State -->
+  <ng-container *ngIf="!(driver$ | async); else driverContent">
+    <div class="text-center py-5">
+      <i class="fas fa-spinner fa-spin fa-2x me-2"></i> Loading driver information...
+    </div>
+  </ng-container>
+
+  <!-- Driver Content -->
+  <ng-template #driverContent>
+    <ng-container *ngIf="driver$ | async as driver; else noDriver">
+      <h2 class="mb-4 text-primary"><i class="fas fa-user me-2"></i>Driver Details</h2>
+
+      <!-- Driver Info -->
+      <div class="card mb-4 shadow-sm">
+        <div class="card-header bg-success text-white">
+          <h5 class="mb-0">Driver Information</h5>
+        </div>
+        <div class="card-body">
+          <p><strong>Name:</strong> {{ driver.name || 'N/A' }}</p>
+          <p><strong>Email:</strong> {{ driver.email || 'N/A' }}</p>
+          <p><strong>Phone:</strong> {{ driver.phone || 'N/A' }}</p>
+          <p><strong>Role:</strong> {{ driver.role || 'N/A' }}</p>
+          <p *ngIf="driver.vehicleType"><strong>Vehicle Type:</strong> {{ driver.vehicleType }}</p>
+        </div>
+      </div>
+
+      <!-- Vehicle Info -->
+      <div class="card mb-4 shadow-sm">
+        <div class="card-header bg-info text-white">
+          <h5 class="mb-0">Vehicle Information</h5>
+        </div>
+        <div class="card-body">
+          <ng-container *ngIf="vehicle$ | async as vehicle; else noVehicle">
+            <p><strong>Matricule:</strong> {{ vehicle.matVehicle || 'N/A' }}</p>
+            <p><strong>Type:</strong> {{ vehicle.type || 'N/A' }}</p>
+            <p><strong>Max Weight:</strong> {{ vehicle.maxWeight || 0 }} kg</p>
+            <p><strong>Max Volume:</strong> {{ vehicle.maxVolume || 0 }} m³</p>
+            <p><strong>CIN:</strong> {{ vehicle.cin || 'N/A' }}</p>
+            <div class="d-flex flex-wrap mt-3">
+              <div class="me-3 mb-2">
+                <img [src]="vehicle.carteGriseFront || 'assets/default-image.png'" alt="Carte Grise Front" class="img-thumbnail" width="150" (error)="handleImageError($event)">
+              </div>
+              <div class="me-3 mb-2">
+                <img [src]="vehicle.carteGriseBack || 'assets/default-image.png'" alt="Carte Grise Back" class="img-thumbnail" width="150" (error)="handleImageError($event)">
+              </div>
+              <div class="me-3 mb-2">
+                <img [src]="vehicle.carteIdentityFront || 'assets/default-image.png'" alt="CIN Front" class="img-thumbnail" width="150" (error)="handleImageError($event)">
+              </div>
+              <div class="me-3 mb-2">
+                <img [src]="vehicle.carteIdentityBack || 'assets/default-image.png'" alt="CIN Back" class="img-thumbnail" width="150" (error)="handleImageError($event)">
+              </div>
+              <div class="me-3 mb-2">
+                <img [src]="vehicle.vehicleImage || 'assets/default-image.png'" alt="Vehicle Image" class="img-thumbnail" width="150" (error)="handleImageError($event)">
+              </div>
+            </div>
+          </ng-container>
+          <ng-template #noVehicle>
+            <p class="text-muted">No vehicle information available.</p>
+          </ng-template>
+        </div>
+      </div>
+
+      <!-- Ratings -->
+      <div class="card mb-4 shadow-sm">
+        <div class="card-header bg-warning text-dark">
+          <h5 class="mb-0">Ratings</h5>
+        </div>
+        <div class="card-body">
+          <ng-container *ngIf="avgRating$ | async as rating; else noRatings">
+            <p><strong>Average Rating:</strong> {{ rating.avg }} / 5</p>
+            <p><strong>Number of Ratings:</strong> {{ rating.count }}</p>
+          </ng-container>
+          <ng-template #noRatings>
+            <p class="text-muted">No ratings available.</p>
+          </ng-template>
+        </div>
+      </div>
+    </ng-container>
+
+    <!-- No Driver -->
+    <ng-template #noDriver>
+      <div class="alert alert-warning" role="alert">
+        No driver found for ID: {{ driverId || 'unknown' }}
+      </div>
+    </ng-template>
+  </ng-template>
+</div>

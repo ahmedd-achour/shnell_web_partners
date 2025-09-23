@@ -1,0 +1,39 @@
+<div class="profile-container py-4" *ngIf="profile$ | async as profile">
+  <!-- Header -->
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <h2 class="profile-title">👤 Profile</h2>
+    <h5 class="balance">Balance: <span>{{ profile.balance }} TND</span></h5>
+  </div>
+
+  <!-- User Info Card -->
+  <div class="card profile-card shadow-sm mb-4">
+    <div class="card-body">
+      <p><strong>Name:</strong> {{ profile.name }}</p>
+      <p><strong>Email:</strong> {{ profile.email }}</p>
+      <p><strong>Phone:</strong> {{ profile.phone }}</p>
+      <p><strong>Role:</strong> {{ profile.role }}</p>
+    </div>
+  </div>
+
+  <!-- Drivers Section -->
+  <div class="card profile-card shadow-sm mb-4">
+    <div class="card-header d-flex justify-content-between align-items-center">
+      <h4 class="mb-0">🚚 Drivers</h4>
+      <span class="badge bg-primary">{{ profile.drivers.length }} Drivers</span>
+    </div>
+    <ul class="list-group list-group-flush">
+      <li *ngFor="let driver of profile.drivers" class="list-group-item driver-item d-flex justify-content-between align-items-center">
+        {{ driver }}
+        <button class="btn btn-sm btn-outline-danger" (click)="removeDriver(driver)">Remove</button>
+      </li>
+    </ul>
+
+    <div class="driver-add-section mt-3 d-flex gap-2">
+      <input #driverId type="text" class="form-control" placeholder="Enter Driver ID" />
+      <button class="btn btn-success" (click)="addDriver(driverId.value)">Add Driver</button>
+    </div>
+  </div>
+
+  <!-- Logout -->
+  <button class="btn btn-danger w-100 logout-btn" (click)="onSignOut()">Logout</button>
+</div>

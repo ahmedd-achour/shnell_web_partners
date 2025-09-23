@@ -1,0 +1,69 @@
+.profile-container {
+  max-width: 800px;
+  margin: 0 auto;
+  font-family: 'Inter', sans-serif;
+  color: #333;
+}
+
+.profile-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #0d6efd;
+}
+
+.balance {
+  font-size: 1.2rem;
+  color: #198754;
+}
+
+.profile-card {
+  border-radius: 12px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  }
+
+  .card-body p {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+  }
+}
+
+.driver-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background 0.2s ease;
+
+  &:hover {
+    background: #f8f9fa;
+  }
+
+  button {
+    font-size: 0.8rem;
+  }
+}
+
+.driver-add-section {
+  input {
+    flex: 1;
+  }
+}
+
+.logout-btn {
+  font-weight: 600;
+  font-size: 1rem;
+  margin-top: 20px;
+  transition: background 0.2s ease;
+  &:hover {
+    background: #c82333;
+  }
+}
+
+@media (max-width: 576px) {
+  .driver-add-section {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+}

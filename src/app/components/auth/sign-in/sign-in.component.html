@@ -1,0 +1,59 @@
+<div class="auth-split d-flex flex-column flex-md-row" role="main" aria-label="Authentication Page">
+  <!-- Left: Logistics Image -->
+  <div class="auth-image flex-fill d-flex align-items-center justify-content-center">
+    <img src="assets/images/logistics.png" alt="Logistics Illustration" class="img-fluid" />
+  </div>
+
+  <!-- Right: Login Form -->
+  <div class="auth-form flex-fill d-flex align-items-center justify-content-center">
+    <div class="auth-card text-center shadow-lg rounded-4 p-4 p-md-5 w-100" style="max-width: 400px;">
+      <img src="assets/images/firebase.png" width="120" class="mb-4 mx-auto d-block" alt="Firebase Logo" />
+
+      <h1 class="mb-2 fw-bold">Welcome to Shnell</h1>
+      <p class="mb-4 text-muted">Sign-in or Sign-up to start managing your deliveries effortlessly.</p>
+
+      <form [formGroup]="authForm" (ngSubmit)="onSubmit()" class="mb-3">
+        <mat-form-field appearance="outline" class="w-100 mb-3">
+          <mat-label>Email/Username</mat-label>
+          <input matInput formControlName="email" aria-label="Email or Username" />
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="w-100 mb-3">
+          <mat-label>Password</mat-label>
+          <input type="password" matInput formControlName="password" aria-label="Password" />
+        </mat-form-field>
+
+        <!-- Error Message -->
+        <div *ngIf="errorMessage" class="alert alert-danger d-flex align-items-center rounded-3 py-2 px-3 mb-3" role="alert">
+          <mat-icon class="me-2" aria-hidden="true">error</mat-icon>
+          <span>{{ errorMessage }}</span>
+        </div>
+
+        <!-- Progress Spinner -->
+        <div *ngIf="isSubmissionInProgress" class="d-flex justify-content-center mb-3">
+          <mat-spinner diameter="24" aria-label="Signing in"></mat-spinner>
+          <span class="ms-2 align-self-center">Signing in...</span>
+        </div>
+
+        <button
+          type="submit"
+          mat-raised-button
+          color="primary"
+          class="w-100 mb-3 auth-button"
+          aria-label="Sign In"
+        >
+          Sign-In
+        </button>
+      </form>
+
+      <p class="mb-2 text-muted small">
+        Don't have an account?
+        <a routerLink="/auth/sign-up" class="text-decoration-none fw-bold">Sign-Up</a>
+      </p>
+
+      <a routerLink="/auth/forgot-password" class="text-decoration-none small d-block mt-2">
+        Forgot Password?
+      </a>
+    </div>
+  </div>
+</div>

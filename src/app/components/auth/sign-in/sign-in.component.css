@@ -1,0 +1,132 @@
+.auth-split {
+  width: 100vw;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: row;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.auth-image {
+  flex: 1;
+  background: linear-gradient(135deg, #FFC107 0%, #212121 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh; /* Ensure it takes full height */
+}
+
+.auth-image img {
+  max-width: 90%;
+  max-height: 90%;
+  object-fit: contain;
+  width: auto;
+  height: auto;
+}
+
+.auth-form {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffffff;
+  min-height: 100vh; /* Ensure full height */
+  padding: 1rem;
+}
+
+.auth-card {
+  background-color: #fff;
+  border-radius: 16px;
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease;
+  padding: 2rem;
+  width: 100%;
+  max-width: 400px;
+  box-sizing: border-box;
+}
+
+.auth-card:hover {
+  transform: translateY(-5px);
+}
+
+.auth-card mat-form-field {
+  background-color: #f1f3f5;
+  border-radius: 8px;
+  width: 100%;
+}
+
+.auth-button {
+  font-weight: 600;
+  padding: 12px 0;
+  font-size: 1rem;
+  line-height: 1.5;
+  min-height: 48px; /* Touch-friendly height */
+}
+
+.alert mat-icon {
+  color: #dc3545;
+}
+
+@media (max-width: 767px) {
+  .auth-split {
+    flex-direction: column;
+    min-height: 100vh;
+  }
+
+  .auth-image {
+    min-height: 40vh;
+    height: auto;
+  }
+
+  .auth-form {
+    min-height: 60vh;
+    padding: 1.5rem 1rem;
+  }
+
+  .auth-card {
+    padding: 1.5rem;
+    max-width: 100%; /* Allow card to take full width on small screens */
+  }
+
+  .auth-button {
+    padding: 10px 0;
+    font-size: 0.9rem;
+  }
+
+  .auth-image img {
+    max-height: 80%; /* Slightly reduce image size on mobile */
+  }
+}
+
+@media (max-width: 576px) {
+  .auth-card {
+    padding: 1rem;
+  }
+
+  .auth-form {
+    padding: 1rem 0.5rem;
+  }
+
+  h1 {
+    font-size: 1.5rem; /* Smaller heading on mobile */
+  }
+
+  p {
+    font-size: 0.875rem; /* Smaller text for better fit */
+  }
+}
+
+/* Ensure smooth scrolling on touch devices */
+.auth-split * {
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Improve accessibility */
+.auth-card a {
+  color: #007bff;
+  transition: color 0.2s ease;
+}
+
+.auth-card a:hover {
+  color: #0056b3;
+}

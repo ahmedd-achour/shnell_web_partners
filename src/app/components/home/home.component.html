@@ -1,0 +1,209 @@
+
+
+
+
+
+<!-- Header Start -->
+
+<div class="jumbotron jumbotron-fluid mb-5">
+  <div class="container text-center py-5">
+    <h1 class="text-primary mb-4">Safe & Faster</h1>
+    <h1 class="text-white display-3 mb-5">Shnell Logistics</h1>
+
+    <div class="mx-auto" style="width: 100%; max-width: 600px;">
+      <div class="input-group">
+        <input
+          type="text"
+          class="form-control border-light"
+          style="padding: 30px;"
+          placeholder="Phone number +216 .."
+          [(ngModel)]="phoneNumber"
+        />
+        <div class="input-group-append">
+          <button class="btn btn-primary px-3" (click)="trackStops()">Track & Trace</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Multiple stops table -->
+    <div *ngIf="activeStops.length > 1" class="mt-4 table-responsive">
+      <table class="table table-bordered table-hover bg-light">
+        <thead>
+          <tr>
+            <th>Destination</th>
+            <th>Customer Name</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let stop of activeStops">
+            <td>{{ stop.data.destinationName }}</td>
+            <td>{{ stop.data.customerName || 'N/A' }}</td>
+            <td>
+              <button class="btn btn-sm btn-primary" (click)="trackStopById(stop.id)">Track & Trace</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div *ngIf="loading" class="mt-3 text-white">
+      Loading active stops...
+    </div>
+  </div>
+</div>
+
+
+<!-- Header End -->
+
+
+
+<!-- About Start -->
+
+<div class="container-fluid py-5">
+
+<div class="container">
+
+<div class="row align-items-center">
+
+<div class="col-lg-5 pb-4 pb-lg-0">
+
+<img class="img-fluid w-100" src="img/about.jpg" alt="">
+
+<div class="bg-primary text-dark text-center p-4">
+
+<h3 class="m-0">25+ Years Experience</h3>
+
+</div>
+
+</div>
+
+<div class="col-lg-7">
+
+<h6 class="text-primary text-uppercase font-weight-bold">About Us</h6>
+
+<h1 class="mb-4">Trusted & Faster Logistic Service Provider</h1>
+
+<p class="mb-4">Shnell Logistics combines cutting-edge route optimization with real-time tracking to deliver parcels faster, smarter, and more reliably. Our platform allows businesses to manage shipments seamlessly, reduce delivery costs, and provide customers with full transparency. With flexible truck options, optimized multi-stop routes, and instant in-app communication, Shnell ensures that every delivery is not only on time but fully trackable — giving businesses peace of mind and a competitive edge in logistics.</p>
+
+<div class="d-flex align-items-center pt-2">
+
+<button type="button" class="btn-play" data-toggle="modal"
+
+
+data-src="https://www.youtube.com/embed/DWRcNpR6Kdc" data-target="#videoModal">
+
+<span></span> -
+
+</button>
+
+<h5 class="font-weight-bold m-0 ml-4">Play Video</h5>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- Video Modal -->
+
+<div class="modal fade" id="videoModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+
+<div class="modal-dialog" role="document">
+
+<div class="modal-content">
+
+<div class="modal-body">
+
+<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+
+<span aria-hidden="true">&times;</span>
+
+</button>
+
+<!-- 16:9 aspect ratio -->
+
+<div class="embed-responsive embed-responsive-16by9">
+
+<iframe class="embed-responsive-item" src="" id="video" allowscriptaccess="always" allow="autoplay"></iframe>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- About End -->
+
+
+
+<main>
+    <section class="features-section py-5">
+        <div class="container">
+            <h2 class="text-center mb-5">Why Choose Us?</h2>
+            <div class="row text-center">
+                <div class="col-lg-4 mb-4">
+                    <div class="feature-card p-4">
+                        <i class="fas fa-route feature-icon"></i>
+                        <h3 class="mt-3">Multi-stop</h3>
+                        <p>Quote, book, and track multi-stop full truckload shipments (up to 23 stops) with flat rates and real-time visibility.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 mb-4">
+                    <div class="feature-card p-4">
+                        <i class="fas fa-chart-line feature-icon"></i>
+                        <h3 class="mt-3">Facility Insights & Ratings</h3>
+                        <p>Monitor appointment efficiency, carrier ratings, detention spend, and more with our powerful Facility Insights tool.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 mb-4">
+                    <div class="feature-card p-4">
+                        <i class="fas fa-boxes feature-icon"></i>
+                        <h3 class="mt-3">One-stop Shop</h3>
+                        <p>Create, view, track, and pay for all your FTL and LTL shipments, all in one digital-first platform for a seamless experience.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="how-it-works-section py-5">
+        <div class="container">
+            <h2 class="text-center mb-5">How It Works</h2>
+            <div class="row text-center">
+                <div class="col-md-4 mb-4">
+                    <div class="step-card p-4">
+                        <i class="fas fa-pencil-alt step-icon"></i>
+                        <h4 class="mt-3">1. Enter Details</h4>
+                        <p>Provide your pickup and delivery locations to get an instant, transparent price.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="step-card p-4">
+                        <i class="fas fa-truck-loading step-icon"></i>
+                        <h4 class="mt-3">2. Book Your Load</h4>
+                        <p>Select a carrier from our trusted network and book your shipment in seconds.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="step-card p-4">
+                        <i class="fas fa-map-marker-alt step-icon"></i>
+                        <h4 class="mt-3">3. Track & Go</h4>
+                        <p>Follow your shipment's journey in real-time and receive automated updates.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+
+

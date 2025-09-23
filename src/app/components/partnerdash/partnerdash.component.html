@@ -1,0 +1,186 @@
+
+<body class="bg-gray-100 text-gray-800">
+
+<header class="bg-white shadow-sm py-4">
+    <div class="container mx-auto px-6 flex justify-between items-center">
+        <h1 class="text-2xl font-bold text-green-600">📦 Your Logistics Partner</h1>
+        <div class="space-x-4">
+            <button id="dispatch-tab" class="tab-button px-4 py-2 rounded-lg font-semibold text-gray-600 hover:bg-green-100 transition-colors duration-200 active">Dispatcher</button>
+            <button id="customer-tab" class="tab-button px-4 py-2 rounded-lg font-semibold text-gray-600 hover:bg-green-100 transition-colors duration-200">Customer</button>
+        </div>
+    </div>
+</header>
+
+<main class="p-6">
+
+    <!-- Dispatcher Dashboard -->
+    <div id="dispatch-view" class="container mx-auto">
+        <div class="flex flex-col lg:flex-row gap-6">
+
+            <!-- Sidebar -->
+            <aside class="lg:w-1/4 p-6 bg-white rounded-xl shadow-md space-y-6">
+                <div class="mb-6">
+                    <h2 class="text-xl font-bold mb-4">New Unassigned Orders</h2>
+                    <ul id="new-orders" class="space-y-3">
+                        <!-- New orders will be dynamically added here -->
+                        <li class="bg-yellow-50 p-3 rounded-lg border border-yellow-200 cursor-grab active:cursor-grabbing transform transition-transform duration-100 hover:scale-[1.01]">
+                            <p class="font-semibold text-sm">#1024 - Jane Doe</p>
+                            <p class="text-xs text-gray-500">123 Market St, San Francisco</p>
+                        </li>
+                        <li class="bg-yellow-50 p-3 rounded-lg border border-yellow-200 cursor-grab active:cursor-grabbing transform transition-transform duration-100 hover:scale-[1.01]">
+                            <p class="font-semibold text-sm">#1025 - John Smith</p>
+                            <p class="text-xs text-gray-500">456 Pine Ave, Berkeley</p>
+                        </li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h2 class="text-xl font-bold mb-4">Available Drivers</h2>
+                    <ul id="available-drivers" class="space-y-3">
+                        <!-- Drivers will be dynamically added here -->
+                        <li data-driver-id="driver-1" class="bg-green-50 p-3 rounded-lg border border-green-200">
+                            <p class="font-semibold text-sm">Driver Alex</p>
+                            <p class="text-xs text-green-600">Status: Available</p>
+                        </li>
+                        <li data-driver-id="driver-2" class="bg-green-50 p-3 rounded-lg border border-green-200">
+                            <p class="font-semibold text-sm">Driver Sam</p>
+                            <p class="text-xs text-green-600">Status: Available</p>
+                        </li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h2 class="text-xl font-bold mb-4">Live Deliveries</h2>
+                    <ul id="live-deliveries" class="space-y-3">
+                        <!-- Live deliveries will be shown here after assignment -->
+                        <li class="p-3 rounded-lg bg-blue-50 border border-blue-200">
+                            <p class="font-semibold text-sm">#1023 - Mike C. </p>
+                            <p class="text-xs text-blue-600">Assigned to: Driver Alex</p>
+                        </li>
+                    </ul>
+                </div>
+            </aside>
+
+            <!-- Main Content - Map -->
+            <div id="map-area" class="lg:w-3/4 p-6 bg-white rounded-xl shadow-md map-placeholder min-h-[600px] flex items-center justify-center">
+                <div class="bg-white/80 backdrop-blur-sm p-8 rounded-xl text-center">
+                    <h3 class="text-3xl font-bold text-gray-600 mb-2">Drag & Drop to Assign</h3>
+                    <p class="text-gray-500">Your live map would be here, showing drivers and orders.</p>
+                    <p class="text-sm text-gray-400 mt-2">
+                        <!-- In a real app, this would be a map powered by a service like Google Maps or Mapbox. -->
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Customer View -->
+    <div id="customer-view" class="container mx-auto hidden">
+        <div class="max-w-md mx-auto p-8 bg-white rounded-xl shadow-md space-y-6 text-center">
+            <h2 class="text-3xl font-bold text-green-600">Track Your Order</h2>
+            <p class="text-gray-500">Enter your phone number to see the status of your delivery.</p>
+            <div class="relative">
+                <input id="phone-number-input" type="tel" placeholder="e.g., +15551234567" class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-green-500 transition-colors duration-200">
+                <div id="input-error" class="absolute left-0 right-0 mt-1 text-red-500 text-sm hidden">Please enter a valid phone number.</div>
+            </div>
+            <button id="track-button" class="w-full bg-green-500 text-white font-bold py-3 px-6 rounded-lg shadow-lg hover:bg-green-600 transition-colors duration-200">
+                Track
+            </button>
+            <div id="tracking-results" class="mt-8 hidden">
+                <h3 class="text-xl font-bold mb-2">Tracking Status</h3>
+                <div id="status-card" class="bg-green-100 p-6 rounded-lg border-l-4 border-green-500 text-left">
+                    <p class="text-sm text-gray-500">Order from: <span id="seller-name" class="font-semibold text-gray-700"></span></p>
+                    <p class="text-sm text-gray-500 mt-1">Status: <span id="delivery-status" class="font-bold text-green-600"></span></p>
+                    <p class="text-sm text-gray-500 mt-1">Driver: <span id="driver-name" class="font-semibold text-gray-700"></span></p>
+                    <p class="text-sm text-gray-500 mt-1">ETA: <span id="eta" class="font-semibold text-gray-700"></span></p>
+                </div>
+            </div>
+            <div id="not-found" class="mt-8 p-6 bg-red-100 text-red-700 rounded-lg hidden">
+                No active orders found for this phone number.
+            </div>
+        </div>
+    </div>
+</main>
+
+<script>
+    // Mock data for demonstration
+    const mockDeliveries = {
+        "+15551234567": {
+            seller: "TechGadgets Inc.",
+            status: "Out for Delivery",
+            driver: "Alex",
+            eta: "1:30 PM",
+        },
+        "+15559876543": {
+            seller: "Bookworm Central",
+            status: "Delivered",
+            driver: "Sam",
+            eta: "Yesterday at 4:00 PM",
+        },
+    };
+
+    const dispatchTab = document.getElementById('dispatch-tab');
+    const customerTab = document.getElementById('customer-tab');
+    const dispatchView = document.getElementById('dispatch-view');
+    const customerView = document.getElementById('customer-view');
+
+    function switchView(view) {
+        if (view === 'dispatch') {
+            dispatchView.classList.remove('hidden');
+            customerView.classList.add('hidden');
+            dispatchTab.classList.add('active');
+            customerTab.classList.remove('active');
+        } else {
+            customerView.classList.remove('hidden');
+            dispatchView.classList.add('hidden');
+            customerTab.classList.add('active');
+            dispatchTab.classList.remove('active');
+        }
+    }
+
+    dispatchTab.addEventListener('click', () => switchView('dispatch'));
+    customerTab.addEventListener('click', () => switchView('customer'));
+
+    // Customer tracking logic
+    const trackButton = document.getElementById('track-button');
+    const phoneNumberInput = document.getElementById('phone-number-input');
+    const trackingResults = document.getElementById('tracking-results');
+    const notFoundMessage = document.getElementById('not-found');
+    const inputError = document.getElementById('input-error');
+
+    trackButton.addEventListener('click', () => {
+        const phoneNumber = phoneNumberInput.value.trim();
+        trackingResults.classList.add('hidden');
+        notFoundMessage.classList.add('hidden');
+        inputError.classList.add('hidden');
+
+        if (!phoneNumber) {
+            inputError.classList.remove('hidden');
+            return;
+        }
+
+        const order = mockDeliveries[phoneNumber];
+
+        if (order) {
+            document.getElementById('seller-name').textContent = order.seller;
+            document.getElementById('delivery-status').textContent = order.status;
+            document.getElementById('driver-name').textContent = order.driver;
+            document.getElementById('eta').textContent = order.eta;
+            trackingResults.classList.remove('hidden');
+            if (order.status === "Delivered") {
+                document.getElementById('status-card').classList.remove('bg-green-100', 'border-green-500');
+                document.getElementById('status-card').classList.add('bg-blue-100', 'border-blue-500');
+            } else {
+                document.getElementById('status-card').classList.remove('bg-blue-100', 'border-blue-500');
+                document.getElementById('status-card').classList.add('bg-green-100', 'border-green-500');
+            }
+
+        } else {
+            notFoundMessage.classList.remove('hidden');
+        }
+    });
+
+</script>
+
+</body>

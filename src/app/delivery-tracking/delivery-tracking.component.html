@@ -1,0 +1,80 @@
+<div class="tracking-container">
+
+  <!-- Loading Overlay -->
+  <div *ngIf="loading" class="loading-overlay">
+    <div class="spinner"></div>
+    <p>Loading real-time delivery tracking...</p>
+  </div>
+
+  <!-- Error Message -->
+  <div *ngIf="!loading && !trackingAvailable" class="error-message-container">
+    <div *ngIf="errorMessage" class="error-message">
+      <i class="fas fa-exclamation-circle"></i>
+      <p>{{ errorMessage }}</p>
+    </div>
+  </div>
+
+  <!-- Tracking Content -->
+  <div *ngIf="!loading && trackingAvailable" class="tracking-content">
+
+    <!-- Collapsible Header -->
+    <div class="tracking-header" (click)="headerCollapsed = !headerCollapsed">
+      <h2><i class="fas fa-truck"></i> Live Delivery Tracking</h2>
+      <i class="fas" [ngClass]="headerCollapsed ? 'fa-chevron-down' : 'fa-chevron-up'"></i>
+    </div>
+
+    <!-- Driver & ETA Info -->
+    <div class="info-panel" [class.collapsed]="headerCollapsed">
+      <p class="destination-name">
+        <i class="fas fa-map-marker-alt"></i> Delivering to: {{ stopData?.destinationName || 'N/A' }}
+      </p>
+
+      <div *ngIf="driverAvailable" class="driver-status">
+        <h3><i class="fas fa-truck-moving"></i> Driver Status: On the Way!</h3>
+        <h4>Driver: {{ driverName }} | Contact: {{ driverPhoneNumber }}</h4>
+        <p class="eta-value">
+          <span *ngIf="etaMinutes > 0; else arrived">
+            <i class="fas fa-clock"></i> ETA: {{ etaMinutes }} min
+          </span>
+          <ng-template #arrived>
+            <i class="fas fa-check-circle"></i> Arrived!
+          </ng-template>
+        </p>
+      </div>
+
+      <div *ngIf="!driverAvailable" class="driver-status-unavailable">
+        <h3><i class="fas fa-exclamation-triangle"></i> Driver Offline</h3>
+        <p>The delivery boy's location is currently unavailable.</p>
+      </div>
+    </div>
+
+    <!-- Map -->
+    <div class="map-wrapper">
+      <google-map
+        [center]="driverPosition ?? mapCenter "
+        [zoom]="mapZoom"
+        height="100%"
+        width="100%"
+      >
+        <map-marker
+          *ngIf="driverPosition"
+          [position]="driverPosition"
+          [options]="driverMarkerOptions"
+        ></map-marker>
+
+        <map-circle
+          *ngIf="driverPosition"
+          [center]="driverPosition"
+          [options]="driverCircleOptions"
+        ></map-circle>
+
+        <map-marker
+          *ngIf="stopPosition"
+          [position]="stopPosition"
+          [options]="stopMarkerOptions"
+        ></map-marker>
+      </google-map>
+    </div>
+
+  </div>
+</div>

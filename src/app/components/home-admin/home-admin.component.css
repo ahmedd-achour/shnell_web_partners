@@ -1,0 +1,200 @@
+/* General Layout and Typography */
+body {
+  background-color: #f0f2f5;
+}
+
+.dashboard-container {
+  font-family: 'Poppins', sans-serif;
+}
+
+h1.display-4 {
+  font-weight: 700;
+  color: #1a237e;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Stat Cards */
+.stat-card {
+  border-radius: 1.5rem;
+  padding: 1.5rem 2rem;
+  background: linear-gradient(135deg, #0d6efd, #0056b3);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.stat-card.bg-success {
+  background: linear-gradient(135deg, #28a745, #1d7e35);
+}
+
+.stat-card.bg-info {
+  background: linear-gradient(135deg, #17a2b8, #117a8b);
+}
+
+.stat-card.bg-danger {
+  background: linear-gradient(135deg, #dc3545, #b82c39);
+}
+
+.stat-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* Drivers Card and Table */
+.drivers-card {
+  border-radius: 1rem;
+  border: none;
+  background-color: #ffffff;
+}
+
+.drivers-card .card-header {
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+  background-color: #34495e !important;
+  color: #ecf0f1;
+}
+
+.search-input-group {
+  max-width: 400px;
+}
+
+.form-control-lg {
+  border-radius: 0.5rem 0 0 0.5rem;
+  border-color: #bdc3c7;
+}
+
+.input-group-text {
+  background-color: #fff;
+  border-radius: 0 0.5rem 0.5rem 0;
+  border-color: #bdc3c7;
+}
+
+.table-striped > tbody > tr:nth-of-type(odd) {
+  background-color: #f8f9fa;
+}
+
+.table-hover tbody tr:hover {
+  background-color: #e9ecef;
+  transform: scale(1.01);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+  transition: all 0.2s ease-in-out;
+}
+
+.table thead th {
+  background-color: #1a237e !important;
+  color: #fff;
+  border: none;
+  font-weight: 600;
+}
+
+.badge {
+  padding: 0.5em 1em;
+  font-size: 0.8em;
+  font-weight: 600;
+}
+
+/* Map Section */
+.map-card {
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+#map {
+  width: 100%;
+  height: 600px;
+  border-radius: 1rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+  .search-input-group {
+    width: 100%;
+    margin-top: 1rem;
+  }
+}
+btn-warning {
+  background-color: #ffc107;
+  border-color: #ffc107;
+  color: #fffb00;
+}
+
+.btn-warning:hover {
+  background-color: #e0a800;
+  border-color: #d39e00;
+}
+
+/* New CSS for the vehicle images */
+.vehicle-icon {
+  width: 40px;
+  height: auto;
+  transition: transform 0.2s;
+}
+
+.vehicle-icon:hover {
+  transform: scale(1.1);
+}
+
+/* Responsive adjustments for the card header */
+@media (max-width: 576px) {
+  .card-header.d-flex {
+    flex-direction: column;
+    align-items: flex-start !important;
+  }
+  .search-input-group {
+    width: 100% !important;
+  }
+}
+
+/*
+ * -----------------------------------------------------------------------------
+ * 🗺️ Mapbox Styling
+ * -----------------------------------------------------------------------------
+ */
+
+#map {
+  height: 500px;
+  border-radius: 0 0 var(--border-radius-lg) var(--border-radius-lg);
+  position: relative; /* Make the map a positioning context for the overlay */
+  z-index: 1;
+}
+
+/* New styles for the map overlay */
+.map-overlay {
+  position: absolute; /* Position the overlay on top of the map */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10; /* Ensure it's above the map content */
+  pointer-events: none; /* Allows clicks to pass through to the map if needed */
+}
+
+.map-overlay-content {
+  text-align: center;
+  color: #fff;
+  padding: 1.5rem;
+  font-size: 1.5rem;
+  font-weight: 600;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+  animation: fadeIn 1s ease-in-out;
+}
+
+/* The rest of your existing CSS for the map and markers goes here */
+
+.driver-marker {
+  width: 40px;
+  height: 40px;
+  background-color: var(--primary-color);
+  border: 3px solid var(--white-color);
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease-in-out;
+}

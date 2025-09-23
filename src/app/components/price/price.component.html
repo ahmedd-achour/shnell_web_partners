@@ -1,0 +1,367 @@
+l
+<body class="bg-gray-900 text-gray-200">
+
+    <!-- Sidebar -->
+    <aside id="sidebar" class="fixed top-0 left-0 w-64 h-full bg-gray-800 p-6 shadow-xl transition-all duration-300 transform -translate-x-full lg:translate-x-0 z-50">
+        <div class="flex items-center mb-8">
+            <svg class="h-8 w-8 text-amber-400 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.674M12 3v18m-7-2h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+            <span class="text-2xl font-bold text-white">Shnell</span>
+        </div>
+        <nav>
+            <ul class="space-y-4">
+                <li>
+                    <a href="#" class="flex items-center space-x-3 text-gray-400 hover:text-white hover:bg-gray-700 p-3 rounded-xl transition-colors duration-200">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="flex items-center space-x-3 text-gray-400 hover:text-white hover:bg-gray-700 p-3 rounded-xl transition-colors duration-200">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20v-2a3 3 0 013-3h1m0-10V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v3a2 2 0 002 2h4a2 2 0 002-2v-3zm-2 0h-2M4 12v6a2 2 0 002 2h2a2 2 0 002-2v-6m-4 0a2 2 0 100-4 2 2 0 000 4zm1 0a2 2 0 100-4 2 2 0 000 4z"></path></svg>
+                        <span>Couriers</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="flex items-center space-x-3 text-gray-400 hover:text-white hover:bg-gray-700 p-3 rounded-xl transition-colors duration-200">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M17 17h.01"></path></svg>
+                        <span>Analytics</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="flex items-center space-x-3 text-gray-400 hover:text-white hover:bg-gray-700 p-3 rounded-xl transition-colors duration-200">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.608 3.29 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                        <span>Settings</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main id="main-content" class="lg:ml-64 p-8">
+        <!-- Top Bar -->
+        <header class="flex justify-between items-center mb-10">
+            <div class="flex items-center">
+                <button id="menu-toggle" class="lg:hidden text-gray-400 hover:text-white mr-4 focus:outline-none">
+                 k   <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                </button>
+                <h1 class="text-3xl font-bold text-white">Dashboard</h1>
+            </div>
+            <div class="flex items-center space-x-4">
+                <span id="welcome-message" class="text-gray-400">Welcome, Admin</span>
+                <div class="h-10 w-10 bg-amber-600 rounded-full flex items-center justify-center text-white font-bold">A</div>
+            </div>
+        </header>
+
+        <!-- Loading Indicator -->
+        <div id="loading" class="text-center p-10">
+            <svg class="animate-spin h-8 w-8 text-amber-500 mx-auto" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+            </svg>
+            <p class="mt-4 text-gray-400">Loading data...</p>
+        </div>
+
+        <!-- Dashboard Content -->
+        <div id="dashboard-content" class="hidden">
+            <p class="text-sm text-gray-500 mb-4">User ID: <span id="user-id"></span></p>
+
+            <!-- Dashboard Widgets -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-10">
+                <!-- Widget 1: Total Couriers -->
+                <div class="bg-gray-800 p-6 rounded-2xl shadow-lg border border-gray-700">
+                    <h3 class="text-lg font-semibold text-gray-400">Total Couriers</h3>
+                    <p id="total-couriers" class="text-4xl font-bold text-white mt-2">...</p>
+                    <span class="text-sm text-green-400">+10% since last month</span>
+                </div>
+                <!-- Widget 2: Active Deliveries -->
+                <div class="bg-gray-800 p-6 rounded-2xl shadow-lg border border-gray-700">
+                    <h3 class="text-lg font-semibold text-gray-400">Active Deliveries</h3>
+                    <p id="active-deliveries" class="text-4xl font-bold text-white mt-2">...</p>
+                    <span class="text-sm text-amber-400">3 new assigned today</span>
+                </div>
+                <!-- Widget 3: Successfully Delivered -->
+                <div class="bg-gray-800 p-6 rounded-2xl shadow-lg border border-gray-700">
+                    <h3 class="text-lg font-semibold text-gray-400">Delivered (Last 30 Days)</h3>
+                    <p id="delivered-count" class="text-4xl font-bold text-white mt-2">...</p>
+                    <span class="text-sm text-white"><span id="success-rate">...</span>% success rate</span>
+                </div>
+                <!-- Widget 4: Returned Items -->
+                <div class="bg-gray-800 p-6 rounded-2xl shadow-lg border border-gray-700">
+                    <h3 class="text-lg font-semibold text-gray-400">Returned Items</h3>
+                    <p id="returned-count" class="text-4xl font-bold text-white mt-2">...</p>
+                    <span class="text-sm text-red-400"><span id="returned-rate">...</span>% of total deliveries</span>
+                </div>
+            </div>
+
+            <!-- Charts Section -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-10">
+                <!-- Line Chart: Daily Deliveries -->
+                <div class="bg-gray-800 p-6 rounded-2xl shadow-lg border border-gray-700">
+                    <h3 class="text-xl font-bold text-white mb-4">Daily Deliveries</h3>
+                    <canvas id="dailyDeliveriesChart"></canvas>
+                </div>
+                <!-- Doughnut Chart: Delivery Status -->
+                <div class="bg-gray-800 p-6 rounded-2xl shadow-lg border border-gray-700">
+                    <h3 class="text-xl font-bold text-white mb-4">Delivery Status</h3>
+                    <canvas id="deliveryStatusChart"></canvas>
+                </div>
+            </div>
+
+            <!-- Recent Activity Table -->
+            <div class="bg-gray-800 p-6 rounded-2xl shadow-lg border border-gray-700">
+                <h3 class="text-xl font-bold text-white mb-4">Recent Activity</h3>
+                <div class="overflow-x-auto">
+                    <table class="min-w-full divide-y divide-gray-700">
+                        <thead>
+                            <tr class="text-left text-gray-400">
+                                <th scope="col" class="py-3 px-4 font-semibold">Order ID</th>
+                                <th scope="col" class="py-3 px-4 font-semibold">Courier Name</th>
+                                <th scope="col" class="py-3 px-4 font-semibold">Customer Name</th>
+                                <th scope="col" class="py-3 px-4 font-semibold">Status</th>
+                                <th scope="col" class="py-3 px-4 font-semibold">Time</th>
+                            </tr>
+                        </thead>
+                        <tbody id="activity-table-body" class="divide-y divide-gray-800">
+                            <!-- Table rows will be populated by JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
+        import { getAuth, signInAnonymously, signInWithCustomToken, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+        import { getFirestore, collection, onSnapshot, query, addDoc, serverTimestamp, setLogLevel } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+
+        // Set Firebase debug log level
+        setLogLevel('debug');
+
+        // Global variables for Firebase configuration
+        const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
+        const firebaseConfig = JSON.parse(typeof __firebase_config !== 'undefined' ? __firebase_config : '{}');
+        const initialAuthToken = typeof __initial_auth_token !== 'undefined' ? __initial_auth_token : null;
+
+        let db, auth;
+        let userId = null;
+        let isAuthReady = false;
+
+        const loadingSpinner = document.getElementById('loading');
+        const dashboardContent = document.getElementById('dashboard-content');
+        const userIdSpan = document.getElementById('user-id');
+
+        // Sidebar toggle for mobile
+        const menuToggle = document.getElementById('menu-toggle');
+        const sidebar = document.getElementById('sidebar');
+        const mainContent = document.getElementById('main-content');
+
+        menuToggle.addEventListener('click', () => {
+            sidebar.classList.toggle('-translate-x-full');
+            if (sidebar.classList.contains('-translate-x-full')) {
+                mainContent.style.marginLeft = '0';
+            } else {
+                mainContent.style.marginLeft = '16rem'; // w-64 is 16rem
+            }
+        });
+
+        // Initialize Firebase
+        const initFirebase = async () => {
+            try {
+                const app = initializeApp(firebaseConfig);
+                db = getFirestore(app);
+                auth = getAuth(app);
+
+                onAuthStateChanged(auth, async (user) => {
+                    if (user) {
+                        userId = user.uid;
+                        console.log("User signed in with ID:", userId);
+                        isAuthReady = true;
+                        userIdSpan.textContent = userId;
+                        // Start listening for data once authenticated
+                        listenForData();
+                    } else {
+                        console.log("No user signed in. Attempting anonymous sign-in.");
+                        try {
+                            if (initialAuthToken) {
+                                await signInWithCustomToken(auth, initialAuthToken);
+                            } else {
+                                await signInAnonymously(auth);
+                            }
+                        } catch (error) {
+                            console.error("Failed to sign in:", error);
+                        }
+                    }
+                });
+
+            } catch (error) {
+                console.error("Error initializing Firebase:", error);
+                loadingSpinner.classList.add('hidden');
+                dashboardContent.innerHTML = `<div class="text-center text-red-500">Failed to load dashboard. Please check the console for details.</div>`;
+            }
+        };
+
+        let dailyDeliveriesChart = null;
+        let deliveryStatusChart = null;
+
+        // Function to render or update the charts
+        const renderCharts = (dailyData, statusData) => {
+            const dailyDeliveriesConfig = {
+                type: 'line',
+                data: {
+                    labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+                    datasets: [{
+                        label: 'Daily Deliveries',
+                        data: dailyData,
+                        fill: false,
+                        borderColor: '#facc15',
+                        tension: 0.3
+                    }]
+                },
+                options: {
+                    scales: {
+                        x: {
+                            grid: { color: 'rgba(255, 255, 255, 0.1)' },
+                            ticks: { color: '#e5e7eb' }
+                        },
+                        y: {
+                            beginAtZero: true,
+                            grid: { color: 'rgba(255, 255, 255, 0.1)' },
+                            ticks: { color: '#e5e7eb' }
+                        }
+                    },
+                    plugins: { legend: { labels: { color: '#e5e7eb' } } },
+                    responsive: true,
+                    maintainAspectRatio: false
+                }
+            };
+
+            const deliveryStatusConfig = {
+                type: 'doughnut',
+                data: {
+                    labels: ['Delivered', 'In Transit', 'Returned'],
+                    datasets: [{
+                        label: 'Delivery Status',
+                        data: statusData,
+                        backgroundColor: ['#10b981', '#facc15', '#ef4444'],
+                        hoverOffset: 4
+                    }]
+                },
+                options: {
+                    plugins: { legend: { labels: { color: '#e5e7eb' } } },
+                    responsive: true,
+                    maintainAspectRatio: false
+                }
+            };
+
+            if (dailyDeliveriesChart) {
+                dailyDeliveriesChart.data = dailyDeliveriesConfig.data;
+                dailyDeliveriesChart.update();
+            } else {
+                dailyDeliveriesChart = new Chart(document.getElementById('dailyDeliveriesChart'), dailyDeliveriesConfig);
+            }
+
+            if (deliveryStatusChart) {
+                deliveryStatusChart.data = deliveryStatusConfig.data;
+                deliveryStatusChart.update();
+            } else {
+                deliveryStatusChart = new Chart(document.getElementById('deliveryStatusChart'), deliveryStatusConfig);
+            }
+        };
+
+        // Listen for real-time data changes in Firestore
+        const listenForData = () => {
+            if (!db || !isAuthReady) {
+                console.log("Firestore or Auth not ready, skipping listenForData.");
+                return;
+            }
+
+            const publicDataPath = `/artifacts/${appId}/public/data/deliveries`;
+            const q = query(collection(db, publicDataPath));
+
+            onSnapshot(q, (querySnapshot) => {
+                const allDeliveries = [];
+                let deliveredCount = 0;
+                let activeCount = 0;
+                let returnedCount = 0;
+
+                querySnapshot.forEach((doc) => {
+                    const data = doc.data();
+                    allDeliveries.push({ id: doc.id, ...data });
+
+                    // Count deliveries by status
+                    if (data.status === 'Delivered') deliveredCount++;
+                    if (data.status === 'In Transit') activeCount++;
+                    if (data.status === 'Returned') returnedCount++;
+                });
+
+                // Update widgets
+                const totalCouriers = 125; // Placeholder
+                document.getElementById('total-couriers').textContent = totalCouriers;
+                document.getElementById('active-deliveries').textContent = activeCount;
+                document.getElementById('delivered-count').textContent = deliveredCount;
+                document.getElementById('returned-count').textContent = returnedCount;
+
+                const totalItems = deliveredCount + activeCount + returnedCount;
+                const successRate = totalItems > 0 ? ((deliveredCount / totalItems) * 100).toFixed(1) : 0;
+                const returnedRate = totalItems > 0 ? ((returnedCount / totalItems) * 100).toFixed(1) : 0;
+                document.getElementById('success-rate').textContent = successRate;
+                document.getElementById('returned-rate').textContent = returnedRate;
+
+                // Sort deliveries by timestamp to show the most recent first
+                allDeliveries.sort((a, b) => b.timestamp - a.timestamp);
+
+                // Update table
+                const activityTableBody = document.getElementById('activity-table-body');
+                activityTableBody.innerHTML = '';
+                allDeliveries.slice(0, 10).forEach(delivery => { // Show max 10 recent activities
+                    const row = document.createElement('tr');
+                    row.classList.add('hover:bg-gray-700', 'transition-colors', 'duration-200');
+                    const timeAgo = (Date.now() - delivery.timestamp.toMillis()) / 1000 / 60; // in minutes
+                    let timeText;
+                    if (timeAgo < 60) {
+                        timeText = `${Math.round(timeAgo)} min ago`;
+                    } else if (timeAgo < 1440) { // 24 hours
+                        timeText = `${Math.round(timeAgo / 60)} hour(s) ago`;
+                    } else {
+                        timeText = `${Math.round(timeAgo / 1440)} day(s) ago`;
+                    }
+
+                    const statusColor = delivery.status === 'Delivered' ? 'bg-green-600' :
+                                        delivery.status === 'In Transit' ? 'bg-amber-600' :
+                                        'bg-red-600';
+
+                    row.innerHTML = `
+                        <td class="py-4 px-4 whitespace-nowrap">${delivery.orderId}</td>
+                        <td class="py-4 px-4 whitespace-nowrap">${delivery.courierName}</td>
+                        <td class="py-4 px-4 whitespace-nowrap">${delivery.customerName}</td>
+                        <td class="py-4 px-4 whitespace-nowrap">
+                            <span class="${statusColor} text-white text-xs font-bold px-3 py-1 rounded-full">${delivery.status}</span>
+                        </td>
+                        <td class="py-4 px-4 whitespace-nowrap text-gray-400">${timeText}</td>
+                    `;
+                    activityTableBody.appendChild(row);
+                });
+
+                // Update charts
+                const dailyData = [65, 59, 80, 81, 56, 75, 90]; // This can be dynamically generated based on timestamps
+                const statusData = [deliveredCount, activeCount, returnedCount];
+                renderCharts(dailyData, statusData);
+
+                // Hide loading spinner and show content
+                loadingSpinner.classList.add('hidden');
+                dashboardContent.classList.remove('hidden');
+
+            }, (error) => {
+                console.error("Error fetching data:", error);
+                loadingSpinner.classList.add('hidden');
+                dashboardContent.innerHTML = `<div class="text-center text-red-500">Error loading data: ${error.message}</div>`;
+            });
+        };
+
+        // Run the initialization on window load
+        window.onload = initFirebase;
+    </script>
+</body>

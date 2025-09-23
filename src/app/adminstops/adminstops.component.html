@@ -1,0 +1,93 @@
+<div class="tracking-wrapper">
+  <h2 class="text-center mb-4">Track Your Delivery</h2>
+
+  <!-- Filters -->
+  <div class="row mb-4 g-2">
+    <div class="col-md-3">
+      <input
+        [(ngModel)]="searchTerm"
+        placeholder="Enter phone number"
+        class="form-control"
+      />
+    </div>
+
+    <div class="col-md-3">
+      <select [(ngModel)]="statusFilter" class="form-select" name="hello" id="d" title="h">
+        <option value="all">All Statuses</option>
+        <option value="pending">Pending</option>
+        <option value="notDelivered">Not Delivered</option>
+        <option value="delivered">Delivered</option>
+      </select>
+    </div>
+
+    <div class="col-md-3">
+      <input
+        type="date"
+        [(ngModel)]="minDate"
+        class="form-control"
+        placeholder="From Date"
+      />
+    </div>
+
+    <div class="col-md-3">
+      <input
+        type="date"
+        [(ngModel)]="maxDate"
+        class="form-control"
+        placeholder="To Date"
+      />
+    </div>
+  </div>
+
+  <!-- Results Table -->
+  <div>
+    <table class="table table-bordered table-hover text-center">
+      <thead class="table-dark">
+        <tr>
+          <th>Customer</th>
+          <th>Phone</th>
+          <th>Destination</th>
+          <th>Date</th>
+          <th>Status</th>
+          <th>Tracking</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let stop of applyFilters()">
+          <td>{{ stop.customerName }}</td>
+          <td>{{ stop.phone }}</td>
+          <td>{{ stop.destinationName }}</td>
+          <td>{{ stop.date ? (stop.date | date:'medium') : 'N/A' }}</td>
+          <td>
+            <span
+              class="badge"
+              [class.bg-secondary]="stop.isDelivered === null"
+              [class.bg-danger]="stop.isDelivered === false"
+              [class.bg-success]="stop.isDelivered === true"
+            >
+              {{
+                stop.isDelivered === null
+                  ? 'Pending'
+                  : stop.isDelivered === false
+                  ? 'Not Delivered'
+                  : 'Delivered'
+              }}
+            </span>
+          </td>
+          <td>
+            <button
+              *ngIf="stop.trackingAvailable"
+              class="btn btn-sm btn-outline-primary"
+              (click)="onTrack(stop.id)"
+            >
+              Track Live
+            </button>
+            <span *ngIf="!stop.trackingAvailable" class="text-muted small">
+              Tracking not available
+            </span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

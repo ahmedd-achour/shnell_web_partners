@@ -1,0 +1,84 @@
+
+
+
+
+
+  <!-- Header Start -->
+    <div class="jumbotron jumbotron-fluid mb-5">
+        <div class="container text-center py-5">
+            <h1 class="text-white display-3">Service</h1>
+            <div class="d-inline-flex align-items-center text-white">
+                <p class="m-0"><a class="text-white" href="">Home</a></p>
+                <i class="fa fa-circle px-3"></i>
+                <p class="m-0">Service</p>
+            </div>
+        </div>
+    </div>
+    <!-- Header End -->
+
+
+
+
+<!-- Services Section Start -->
+<div class="container-fluid pt-5">
+  <div class="container">
+    <div class="text-center pb-2">
+      <h6 class="text-primary text-uppercase font-weight-bold">Our Services</h6>
+      <h1 class="mb-4">Shnell Logistic Solutions</h1>
+    </div>
+    <div class="row pb-3">
+      <div class="col-lg-3 col-md-6 text-center mb-5" *ngFor="let service of services">
+        <div class="d-flex align-items-center justify-content-center bg-primary mb-4 p-4 rounded">
+          <i class="fa fa-2x {{service.icon}} text-dark pr-3"></i>
+          <h6 class="text-white font-weight-medium m-0">{{service.title}}</h6>
+        </div>
+        <p>{{service.description}}</p>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Services Section End -->
+
+<!-- Shnell Features Section Start -->
+<div class="container-fluid bg-light py-5">
+  <div class="container">
+    <div class="text-center pb-2">
+      <h6 class="text-primary text-uppercase font-weight-bold">Why Choose Shnell</h6>
+      <h1 class="mb-4">Smart, Fast & Flexible Delivery</h1>
+    </div>
+    <div class="row pb-3">
+      <div class="col-lg-3 col-md-6 text-center mb-5" *ngFor="let feature of features">
+        <div class="d-flex align-items-center justify-content-center bg-primary mb-4 p-4 rounded">
+          <i class="fa fa-2x {{feature.icon}} text-dark pr-3"></i>
+          <h6 class="text-white font-weight-medium m-0">{{feature.title}}</h6>
+        </div>
+        <p>{{feature.description}}</p>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Shnell Features Section End -->
+
+<!-- Testimonials Section Start -->
+<div class="container-fluid py-5">
+  <div class="container">
+    <div class="text-center pb-2">
+      <h6 class="text-primary text-uppercase font-weight-bold">Testimonials</h6>
+      <h1 class="mb-4">What Our Clients Say</h1>
+    </div>
+    <div class="owl-carousel testimonial-carousel">
+      <div class="position-relative bg-secondary p-4 rounded" *ngFor="let t of testimonials">
+        <i class="fa fa-3x fa-quote-right text-primary position-absolute" style="top: -6px; right: 0;"></i>
+        <div class="d-flex align-items-center mb-3">
+          <img class="img-fluid rounded-circle" [src]="t.img" style="width: 60px; height: 60px;" alt="">
+          <div class="ml-3">
+            <h6 class="font-weight-semi-bold m-0">{{ t.name }}</h6>
+            <small>- {{ t.profession }}</small>
+          </div>
+        </div>
+        <p class="m-0">{{ t.text }}</p>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Testimonials Section End -->

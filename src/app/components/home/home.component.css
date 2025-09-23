@@ -1,0 +1,96 @@
+/* Custom styles for homepage content */
+:root {
+    --primary-amber: #FFBF00;
+    --light-gray: #f4f4f4;
+    --text-white: #FFFFFF;
+}
+
+body {
+    background-color: var(--dark-black);
+    color: var(--text-white);
+    font-family: 'Roboto', sans-serif;
+}
+
+/* Hero Section */
+.hero-section {
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--dark-black);
+    padding: 5rem 0;
+}
+
+.hero-section h1 {
+    color: var(--text-white);
+    font-size: clamp(2rem, 5vw, 4rem);
+}
+
+.hero-section p {
+    color: var(--light-gray);
+    font-size: clamp(1rem, 2vw, 1.25rem);
+}
+
+.booking-form .form-control {
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid var(--primary-amber);
+    color: var(--text-white);
+    padding: 1rem;
+    font-size: 1rem;
+    border-radius: 8px;
+    max-width: 300px;
+}
+
+.booking-form .form-control::placeholder {
+    color: rgba(63, 57, 3, 0.5);
+}
+
+.btn-primary {
+    background-color: var(--primary-amber);
+    border-color: var(--primary-amber);
+    color: var(--dark-black);
+    font-weight: bold;
+    padding: 1rem 2rem;
+    transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #e5b000;
+    border-color: #e5b000;
+}
+
+/* Features and How It Works Sections */
+.features-section, .how-it-works-section {
+    background-color: #7e720b8a;
+    color: var(--text-white);
+}
+
+.features-section h2, .how-it-works-section h2 {
+    color: var(--primary-amber);
+    font-weight: bold;
+}
+
+.feature-card, .step-card {
+    background-color: #222;
+    border: 1px solid #333;
+    border-radius: 12px;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.feature-card:hover, .step-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--primary-amber);
+}
+
+.feature-icon, .step-icon {
+    font-size: 3rem;
+    color: var(--primary-amber);
+}
+
+.feature-card h3, .step-card h4 {
+    color: var(--text-white);
+}
+
+.feature-card p, .step-card p {
+    color: #ccc;
+}

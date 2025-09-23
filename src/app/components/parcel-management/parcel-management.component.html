@@ -1,0 +1,87 @@
+<div class="container p-3">
+
+  <h1 class="mb-3">Parcel Management</h1>
+  <p *ngIf="currentUserId">User ID: {{ currentUserId }}</p>
+
+  <!-- Filters -->
+  <div class="row mb-3 g-2">
+
+    <!-- Phone Filter -->
+    <div class="col-md-3">
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Search by phone"
+        [(ngModel)]="searchPhone"
+        (input)="applyFilters()"
+      />
+    </div>
+
+    <!-- Delivery Status Filter -->
+    <div class="col-md-3">
+      <select class="form-select" [(ngModel)]="filterDelivered" (change)="applyFilters()" title="hello">
+        <option value="all">All</option>
+        <option value="pending">Pending</option>
+        <option value="delivered">Delivered</option>
+        <option value="failed">Failed</option>
+      </select>
+    </div>
+
+    <!-- Date Filters -->
+    <div class="col-md-3">
+      <input type="date" class="form-control" [(ngModel)]="minDate" (change)="applyFilters()" />
+    </div>
+
+    <div class="col-md-3">
+      <input type="date" class="form-control" [(ngModel)]="maxDate" (change)="applyFilters()" />
+    </div>
+
+  </div>
+
+  <!-- Stops Table -->
+  <div class="table-responsive shadow rounded">
+    <table class="table table-striped table-hover align-middle text-center mb-0">
+      <thead class="table-dark">
+        <tr>
+          <th>Customer Name</th>
+          <th>Phone</th>
+          <th>Destination</th>
+          <th>Date</th>
+          <th>Delivery Status</th>
+          <th>Tracking</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let stop of filteredStops">
+          <td>{{ stop.customerName ?? 'N/A' }}</td>
+          <td>{{ stop.phone ?? 'N/A' }}</td>
+          <td>{{ stop.destinationName }}</td>
+          <td>{{ stop.date ? (stop.date | date: 'short') : 'N/A' }}</td>
+          <td>
+            <span
+              [ngClass]="{
+                'badge bg-secondary': stop.isDelivered === null,
+                'badge bg-success': stop.isDelivered === true,
+                'badge bg-danger': stop.isDelivered === false
+              }"
+            >
+              {{ stop.isDelivered === null ? 'Pending' : stop.isDelivered ? 'Delivered' : 'Failed' }}
+            </span>
+          </td>
+          <td>
+            <button
+              class="btn btn-sm btn-primary"
+            >
+              <a [routerLink]="stop.id" class="text-white text-decoration-none">Track</a>
+            </button>
+          </td>
+        </tr>
+
+        <tr *ngIf="filteredStops.length === 0">
+          <td colspan="6" class="text-center">No stops found.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</div>

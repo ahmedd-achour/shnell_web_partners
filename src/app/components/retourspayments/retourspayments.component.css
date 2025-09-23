@@ -1,0 +1,85 @@
+/* Full screen container */
+.coming-soon-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  padding: 16px;
+  background: linear-gradient(135deg, #464706, #81650a); /* Soft green gradient */
+  color: #fff;
+  font-family: 'Arial', sans-serif;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+/* Content area */
+.coming-soon-container .content {
+  max-width: 500px;
+  animation: fadeIn 1.2s ease-in-out;
+}
+
+/* Logo */
+.logo {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 24px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+/* Headings and text */
+h1 {
+  font-size: 3rem;
+  margin-bottom: 16px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+p {
+  font-size: 1.1rem;
+  margin-bottom: 12px;
+  line-height: 1.6;
+}
+
+/* Notify button */
+.notify-btn {
+  background: #fff;
+  font-weight: bold;
+  padding: 12px 28px;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  margin-top: 16px;
+  transition: all 0.3s ease;
+}
+
+.notify-btn:hover {
+  background: #f1f1f1;
+  transform: scale(1.05);
+}
+
+/* Footer */
+.footer {
+  position: absolute;
+  bottom: 16px;
+  font-size: 0.9rem;
+  color: rgba(255,255,255,0.8);
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px);}
+  to { opacity: 1; transform: translateY(0);}
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  h1 {
+    font-size: 2.2rem;
+  }
+  p {
+    font-size: 1rem;
+  }
+}
