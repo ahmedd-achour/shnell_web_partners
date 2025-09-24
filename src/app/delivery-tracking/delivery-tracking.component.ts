@@ -100,7 +100,7 @@ export class DeliveryTrackingComponent implements OnInit {
         this.trackingAvailable = true;
         this.stopPosition = { lat: this.stopData.destination.lat, lng: this.stopData.destination.lng };
         this.mapCenter = this.stopPosition;
-        this.stopMarkerOptions = { ...this.stopMarkerOptions, title: this.stopData.destinationName };
+        this.stopMarkerOptions = { ...this.stopMarkerOptions,};
 
          const driverId = await this.findDriverIdByStopId(this.firestore, stopId);
 

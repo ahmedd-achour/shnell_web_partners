@@ -23,7 +23,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/cloudflare",
+            "outputPath": "dist/angular-firebase-auth",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -40,11 +40,7 @@
               "src/styles.css",
                "src/styles.css",
               "src/css/style.css",
-              "src/css/style.min.css","src/lib/owlcarousel/assets/owl.carousel.css",
-              "src/lib/owlcarousel/assets/owl.carousel.min.css",
-              "src/lib/owlcarousel/assets/owl.theme.default.css",
               "src/lib/owlcarousel/assets/owl.theme.default.min.css",
-              "src/lib/owlcarousel/assets/owl.theme.green.css",
               "src/lib/owlcarousel/assets/owl.theme.green.min.css"
             ],
             "scripts": [
@@ -52,8 +48,6 @@
                 "src/lib/counterup/counterup.min.js",
                 "src/lib/easing/easing.js",
                 "src/lib/easing/easing.min.js",
-                "src/lib/owlcarousel/owl.carousel.js",
-                "src/lib/owlcarousel/owl.carousel.min.js",
                 "src/lib/waypoints/waypoints.min.js",
                 "src/mail/contact.js",
                 "src/mail/jqBootstrapValidation.min.js"
@@ -64,7 +58,7 @@
              "budgets": [
   {
     "type": "initial",
-    "maximumWarning": "1.5mb",
+    "maximumWarning": "2mb",
     "maximumError": "2mb"
   },
   {
@@ -119,11 +113,7 @@
               "src/styles.css",
                "src/styles.css",
               "src/css/style.css",
-              "src/css/style.min.css","src/lib/owlcarousel/assets/owl.carousel.css",
-              "src/lib/owlcarousel/assets/owl.carousel.min.css",
-              "src/lib/owlcarousel/assets/owl.theme.default.css",
               "src/lib/owlcarousel/assets/owl.theme.default.min.css",
-              "src/lib/owlcarousel/assets/owl.theme.green.css",
               "src/lib/owlcarousel/assets/owl.theme.green.min.css"
             ],
             "scripts": [
