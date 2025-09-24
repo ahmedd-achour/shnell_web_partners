@@ -44,13 +44,7 @@
               "src/lib/owlcarousel/assets/owl.theme.green.min.css"
             ],
             "scripts": [
-              "src/js/main.js",
-                "src/lib/counterup/counterup.min.js",
-                "src/lib/easing/easing.js",
-                "src/lib/easing/easing.min.js",
-                "src/lib/waypoints/waypoints.min.js",
-                "src/mail/contact.js",
-                "src/mail/jqBootstrapValidation.min.js"
+
             ]
           },
           "configurations": {
@@ -117,15 +111,7 @@
               "src/lib/owlcarousel/assets/owl.theme.green.min.css"
             ],
             "scripts": [
-              "src/js/main.js",
-                "src/lib/counterup/counterup.min.js",
-                "src/lib/easing/easing.js",
-                "src/lib/easing/easing.min.js",
-                "src/lib/owlcarousel/owl.carousel.js",
-                "src/lib/owlcarousel/owl.carousel.min.js",
-                "src/lib/waypoints/waypoints.min.js",
-                "src/mail/contact.js",
-                "src/mail/jqBootstrapValidation.min.js"
+
             ]
           }
         }
