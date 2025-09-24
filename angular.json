@@ -36,7 +36,12 @@
               "src/img"
             ],
             "styles": [
-
+              "@angular/material/prebuilt-themes/indigo-pink.css",
+              "src/styles.css",
+               "src/styles.css",
+              "src/css/style.css",
+              "src/lib/owlcarousel/assets/owl.theme.default.min.css",
+              "src/lib/owlcarousel/assets/owl.theme.green.min.css"
             ],
             "scripts": [
 
@@ -98,7 +103,12 @@
               "src/img"
             ],
             "styles": [
-
+              "@angular/material/prebuilt-themes/indigo-pink.css",
+              "src/styles.css",
+               "src/styles.css",
+              "src/css/style.css",
+              "src/lib/owlcarousel/assets/owl.theme.default.min.css",
+              "src/lib/owlcarousel/assets/owl.theme.green.min.css"
             ],
             "scripts": [
 
